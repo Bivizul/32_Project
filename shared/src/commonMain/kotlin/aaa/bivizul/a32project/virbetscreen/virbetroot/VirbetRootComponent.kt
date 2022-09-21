@@ -13,7 +13,10 @@ import aaa.bivizul.a32project.virbetscreen.virbetlist.VirbetListComponent
 import aaa.bivizul.a32project.virbetscreen.virbetsettings.VirbetSettings
 import aaa.bivizul.a32project.virbetscreen.virbetsettings.VirbetSettingsComponent
 import com.arkivanov.decompose.ComponentContext
-import com.arkivanov.decompose.router.stack.*
+import com.arkivanov.decompose.router.stack.ChildStack
+import com.arkivanov.decompose.router.stack.StackNavigation
+import com.arkivanov.decompose.router.stack.childStack
+import com.arkivanov.decompose.router.stack.push
 import com.arkivanov.decompose.value.Value
 import com.arkivanov.essenty.parcelable.Parcelable
 import com.arkivanov.essenty.parcelable.Parcelize
@@ -24,8 +27,8 @@ class VirbetRootComponent constructor(
 ) : VirbetRoot, ComponentContext by componentContext {
 
     private val navigation = StackNavigation<Config>()
-//    val virbetRepository = VirbetRepository()
-//    val virbetItemRepository = VirbetItemRepository()
+    val virbetRepository = VirbetRepository()
+    val virbetItemRepository = VirbetItemRepository()
 
     private val stack =
         childStack(
@@ -60,14 +63,11 @@ class VirbetRootComponent constructor(
         componentContext: ComponentContext
     ): Virbet = VirbetComponent(
         componentContext = componentContext,
-        onClick = {
+        context = context,
+        virbetRepository = virbetRepository,
+        onReplaceToHome = {
             navigation.push(Config.VirbetHomeConfig)
         }
-//        context = context,
-//        apostStore = apostStore,
-//        onReplaceCur = {
-//            navigation.replaceCurrent(Config.Main)
-//        },
     )
 
     private fun virbetHome(
@@ -86,13 +86,10 @@ class VirbetRootComponent constructor(
         componentContext: ComponentContext
     ): VirbetList = VirbetListComponent(
         componentContext = componentContext,
-        onClick = {
-            navigation.push(Config.VirbetItemConfig)
-        }
-//        apostpopcryptStore = apostpopcryptStore,
-//        onItemSelected = {
-//            navigation.push(Config.Details(itemId = it))
-//        }
+        virbetItemRepository = virbetItemRepository,
+        onVirbetItemSelected = { itemId ->
+            navigation.push(Config.VirbetItemConfig(itemId = itemId))
+        },
     )
 
     private fun virbetItem(
@@ -100,8 +97,9 @@ class VirbetRootComponent constructor(
         config: Config.VirbetItemConfig
     ): VirbetItem = VirbetItemComponent(
         componentContext = componentContext,
-//        apostpopcryptStore = apostpopcryptStore,
-//        itemId = config.itemId
+        virbetItemRepository = virbetItemRepository,
+        virbetItemId = config.itemId
+
     )
 
     private fun virbetSettings(
@@ -124,11 +122,11 @@ class VirbetRootComponent constructor(
         @Parcelize
         object VirbetListConfig : Config()
 
-        @Parcelize
-        object VirbetItemConfig : Config()
-
 //        @Parcelize
-//        data class VirbetItemConfig(val itemId: Int) : Config()
+//        object VirbetItemConfig : Config()
+
+        @Parcelize
+        data class VirbetItemConfig(val itemId: Int) : Config()
 
         @Parcelize
         object VirbetSettingsConfig : Config()

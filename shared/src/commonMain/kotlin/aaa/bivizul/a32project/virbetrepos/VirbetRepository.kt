@@ -17,13 +17,13 @@ class VirbetRepository {
     private val virbetjob = SupervisorJob()
     private val virbetscope = CoroutineScope(virbetIoDispatcher + virbetjob)
 
-    private val _virbetgEntity = MutableStateFlow<VirbetgEntity?>(null)
-    val virbetgEntity: StateFlow<VirbetgEntity?> = _virbetgEntity.asStateFlow()
+    private val _virbetg = MutableStateFlow<VirbetgEntity?>(null)
+    val virbetg: StateFlow<VirbetgEntity?> = _virbetg.asStateFlow()
 
     fun getVirbetg(virbetEntity: VirbetEntity) {
         virbetscope.launch {
             val response = virbetApi.getVirbetg(virbetEntity)
-            _virbetgEntity.emit(response)
+            _virbetg.emit(response)
         }
     }
 

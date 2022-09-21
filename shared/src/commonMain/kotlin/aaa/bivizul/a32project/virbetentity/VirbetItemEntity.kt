@@ -6,5 +6,5 @@ data class VirbetItemEntity(
     val virbettit: String,
     val virbetdesc: String,
     val virbetimg: String,
-    val virbetinEntity: List<VirbetinEntity>,
+    val virbetin: List<VirbetinEntity>,
 )
