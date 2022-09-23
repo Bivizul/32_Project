@@ -1,8 +1,8 @@
 package aaa.bivizul.a32project.virbetrepos
 
-import aaa.bivizul.a32project.virbetutil.virbetIoDispatcher
 import aaa.bivizul.a32project.virbetapi.VirbetApi
 import aaa.bivizul.a32project.virbetentity.VirbetItemEntity
+import aaa.bivizul.a32project.virbetutil.virbetIoDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,7 +17,8 @@ class VirbetItemRepository {
     private val virbetscope = CoroutineScope(virbetIoDispatcher + virbetjob)
 
     private val _virbetItemEntityList = MutableStateFlow<List<VirbetItemEntity>?>(null)
-    val virbetItemEntityList: StateFlow<List<VirbetItemEntity>?> = _virbetItemEntityList.asStateFlow()
+    val virbetItemEntityList: StateFlow<List<VirbetItemEntity>?> =
+        _virbetItemEntityList.asStateFlow()
 
     init {
         getVirbetItem()

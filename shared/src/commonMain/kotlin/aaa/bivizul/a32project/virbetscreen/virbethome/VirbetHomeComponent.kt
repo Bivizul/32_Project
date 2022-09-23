@@ -7,7 +7,7 @@ class VirbetHomeComponent(
     private val onClickList: () -> Unit,
     private val onClickSettings: () -> Unit,
 
-) : VirbetHome, ComponentContext by componentContext {
+    ) : VirbetHome, ComponentContext by componentContext {
 
     override fun onClickVirbetList() {
         onClickList()

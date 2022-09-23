@@ -1,6 +1,6 @@
 package aaa.bivizul.a32project.virbetscreen.virbetlist
 
-import aaa.bivizul.a31project.especui.especwidget.Virbetcp
+import aaa.bivizul.a32project.virbetwdg.Virbetcp
 import aaa.bivizul.a32project.virbetwdg.VirbetListButton
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
@@ -38,7 +38,7 @@ fun VirbetListContent(
             }
         }
     } else {
-        Virbetcp()
+        Virbetcp(modifier = modifier)
     }
 
 }

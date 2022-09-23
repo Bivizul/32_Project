@@ -2,7 +2,6 @@ package aaa.bivizul.a32project.virbetscreen.virbethome
 
 import aaa.bivizul.a32project.virbetutil.Virbetcon.VIRBETAN
 import aaa.bivizul.a32project.virbetwdg.VirbetHomeButton
-import aaa.bivizul.a32project.virbetwdg.VirbetListButton
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text

@@ -36,7 +36,8 @@ object Deps {
         object Decompose {
             private const val VERSION = "1.0.0-alpha-04-native-compose"
             const val decompose = "com.arkivanov.decompose:decompose:$VERSION"
-            const val extensionsComposeJetbrains = "com.arkivanov.decompose:extensions-compose-jetbrains:$VERSION"
+            const val extensionsComposeJetbrains =
+                "com.arkivanov.decompose:extensions-compose-jetbrains:$VERSION"
             const val extensionsAndroid = "com.arkivanov.decompose:extensions-android:$VERSION"
         }
 
@@ -58,7 +59,6 @@ object Deps {
 
         object Util {
             const val onesignal = "com.onesignal:OneSignal:4.8.2"
-//            const val landscapist = "com.github.skydoves:landscapist-fresco:2.0.0"
             const val coil = "io.coil-kt:coil-compose:2.2.1"
             const val advancedWebView = "com.github.delight-im:Android-AdvancedWebView:v3.2.1"
         }

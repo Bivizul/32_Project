@@ -1,8 +1,7 @@
 package aaa.bivizul.a32project.virbetscreen.virbet
 
-import aaa.bivizul.a31project.especui.especwidget.Virbetcp
+import aaa.bivizul.a32project.virbetwdg.Virbetcp
 import aaa.bivizul.a32project.virbetentity.VirbetvarEntity
-import aaa.bivizul.a32project.virbetutil.Virbetcon.VIRBETDOR
 import aaa.bivizul.a32project.virbetutil.getVirbetact
 import aaa.bivizul.a32project.virbetutil.sigVirbetoff
 import androidx.compose.runtime.Composable
@@ -22,8 +21,6 @@ fun VirbetContent(
     val virbetg by component.state.collectAsState()
     val model by component.models.subscribeAsState()
 
-
-
     LaunchedEffect(key1 = true) {
         delay(3000)
         virbetg?.virbetg?.let {
@@ -38,6 +35,6 @@ fun VirbetContent(
         }
     }
 
-    Virbetcp()
+    Virbetcp(modifier = modifier)
 
 }

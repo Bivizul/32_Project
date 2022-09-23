@@ -16,6 +16,7 @@ class VirbetItemComponent(
     private val _models = MutableValue(VirbetItem.Model(selectedVirbetItemId = virbetItemId))
     override val models: Value<VirbetItem.Model> = _models
 
-    override val state: StateFlow<List<VirbetItemEntity>?> = virbetItemRepository.virbetItemEntityList
+    override val state: StateFlow<List<VirbetItemEntity>?> =
+        virbetItemRepository.virbetItemEntityList
 
 }

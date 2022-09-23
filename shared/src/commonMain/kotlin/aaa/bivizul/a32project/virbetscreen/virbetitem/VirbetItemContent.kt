@@ -1,9 +1,8 @@
 package aaa.bivizul.a32project.virbetscreen.virbetitem
 
-import aaa.bivizul.a31project.especui.especwidget.Virbetcp
+import aaa.bivizul.a32project.virbetwdg.Virbetcp
 import aaa.bivizul.a32project.virbetentity.VirbetinEntity
 import aaa.bivizul.a32project.virbetwdg.VirbetItemImage
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -47,15 +46,15 @@ fun VirbetItemContent(
                         text = item.virbettit,
                         style = MaterialTheme.typography.h5
                     )
-                    if (virbetimg.isNotEmpty()){
+                    if (virbetimg.isNotEmpty()) {
                         VirbetItemImage(virbetimg)
                     }
                     Text(
                         text = item.virbetdesc,
                         style = MaterialTheme.typography.body1
                     )
-                    if (item.virbetin != emptyList<VirbetinEntity>()){
-                        for (i in virbetin){
+                    if (item.virbetin != emptyList<VirbetinEntity>()) {
+                        for (i in virbetin) {
                             Text(
                                 text = i.virbetsubtit,
                                 style = MaterialTheme.typography.h6
@@ -70,6 +69,6 @@ fun VirbetItemContent(
             }
         }
     } else {
-        Virbetcp()
+        Virbetcp(modifier = modifier)
     }
 }

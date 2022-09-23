@@ -3,11 +3,8 @@ package aaa.bivizul.a32project.virbetwdg
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.gestures.detectTapGestures
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -66,7 +63,6 @@ fun Virbetswitch(
             cornerRadius = CornerRadius(x = 10.dp.toPx(), y = 10.dp.toPx()),
             style = Stroke(width = strokeWidth.toPx())
         )
-
         // Thumb
         drawCircle(
             color = if (switchON.value) checkedTrackColor else uncheckedTrackColor,
@@ -77,8 +73,4 @@ fun Virbetswitch(
             )
         )
     }
-//
-//    Spacer(modifier = Modifier.height(18.dp))
-//
-//    Text(text = if (switchON.value) "ON" else "OFF")
 }

@@ -17,7 +17,7 @@ fun VirbetListButton(
 
     Button(
         onClick = onClick,
-//        shape = MaterialTheme.shapes.small
+        modifier = modifier,
         shape = RoundedCornerShape(
             topStart = 4.dp,
             topEnd = 24.dp,

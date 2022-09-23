@@ -53,9 +53,6 @@ class VirbetApi {
     }
 
     suspend fun getVirbetg(virbetEntity: VirbetEntity): VirbetgEntity {
-
-        println("getVirbetg virbetEntity : $virbetEntity")
-
         val getvirbeturl = VIRBETGURL
         val virbethr = virbethc.post {
             virbetbase(getvirbeturl)
@@ -63,9 +60,6 @@ class VirbetApi {
             setBody(virbetEntity)
         }
         val getvirbetbody = virbethr.body<VirbetgEntity>()
-
-        println("getVirbetg getvirbetbody : $getvirbetbody")
-
         return getvirbetbody
     }
 

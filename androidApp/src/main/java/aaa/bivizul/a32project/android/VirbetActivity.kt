@@ -28,8 +28,6 @@ class VirbetActivity : ComponentActivity(), AdvancedWebView.Listener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_virbet)
 
-        println("VirbetActivity")
-
         val url = intent.getStringExtra(VIRBETKOR) ?: VIRBETDOR
 
         virbetwv = findViewById<View>(R.id.virbetawv) as AdvancedWebView
@@ -171,7 +169,8 @@ class VirbetActivity : ComponentActivity(), AdvancedWebView.Listener {
         override fun onHideCustomView() {
             (this@VirbetActivity.window.decorView as FrameLayout).removeView(virbetCustomView)
             virbetCustomView = null
-            this@VirbetActivity.window.decorView.systemUiVisibility = virbetOriginalSystemUiVisibility
+            this@VirbetActivity.window.decorView.systemUiVisibility =
+                virbetOriginalSystemUiVisibility
             this@VirbetActivity.requestedOrientation = virbetOriginalOrientation
             virbetCustomViewCallback!!.onCustomViewHidden()
             virbetCustomViewCallback = null
@@ -186,7 +185,8 @@ class VirbetActivity : ComponentActivity(), AdvancedWebView.Listener {
                 return
             }
             virbetCustomView = paramView
-            virbetOriginalSystemUiVisibility = this@VirbetActivity.window.decorView.systemUiVisibility
+            virbetOriginalSystemUiVisibility =
+                this@VirbetActivity.window.decorView.systemUiVisibility
             virbetOriginalOrientation = this@VirbetActivity.requestedOrientation
             virbetCustomViewCallback = paramCustomViewCallback
             (this@VirbetActivity.window.decorView as FrameLayout).addView(

@@ -10,9 +10,7 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
-import android.net.Uri
 import android.telephony.TelephonyManager
-import androidx.browser.customtabs.CustomTabsIntent
 import com.onesignal.OneSignal
 import kotlinx.coroutines.Dispatchers
 import java.text.SimpleDateFormat
@@ -67,9 +65,9 @@ actual fun getVirbetdlg(virbetcon: Any) {
     val context = virbetcon as Context
     val activity = virbetcon as Activity
     AlertDialog.Builder(context).apply {
-        setTitle("Sorry,an error occurred ")
+        setTitle("Sorry, error connect")
         setMessage("Please try again later")
-        setPositiveButton("Quit") { _, _ ->
+        setPositiveButton("Exit") { _, _ ->
             activity.finish()
             System.exit(0)
         }
@@ -89,29 +87,6 @@ actual fun checkVirbetnet(virbetcon: Any): Boolean {
 actual fun sigVirbetoff() {
     OneSignal.disablePush(true)
 }
-
-//actual fun virbetct(virbetcon: Any, virbetcc: String) {
-//    val context = virbetcon as Context
-//    val package_name = "com.android.chrome"
-//    val activity = (context as? Activity)
-//    val virbetctbuilder = CustomTabsIntent.Builder()
-//        .setShowTitle(false)
-//        .setInstantAppsEnabled(true)
-//        .build()
-//    if (package_name != null) {
-//        virbetctbuilder.intent.setPackage(package_name)
-//        virbetctbuilder.launchUrl(context, Uri.parse(virbetcc))
-//    } else {
-//        val virbeti = Intent(Intent.ACTION_VIEW, Uri.parse(virbetcc))
-//        activity?.startActivity(virbeti)
-//    }
-//}
-
-//internal actual fun getVirbetactoff(virbetcon: Any) {
-//    val activity = virbetcon as Activity
-//    activity.finish()
-//    System.exit(0)
-//}
 
 actual fun getVirbetact(virbetact: Any, virbeturl: String) {
     val activity = virbetact as Activity

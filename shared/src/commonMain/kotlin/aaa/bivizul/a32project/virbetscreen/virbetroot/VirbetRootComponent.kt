@@ -13,10 +13,7 @@ import aaa.bivizul.a32project.virbetscreen.virbetlist.VirbetListComponent
 import aaa.bivizul.a32project.virbetscreen.virbetsettings.VirbetSettings
 import aaa.bivizul.a32project.virbetscreen.virbetsettings.VirbetSettingsComponent
 import com.arkivanov.decompose.ComponentContext
-import com.arkivanov.decompose.router.stack.ChildStack
-import com.arkivanov.decompose.router.stack.StackNavigation
-import com.arkivanov.decompose.router.stack.childStack
-import com.arkivanov.decompose.router.stack.push
+import com.arkivanov.decompose.router.stack.*
 import com.arkivanov.decompose.value.Value
 import com.arkivanov.essenty.parcelable.Parcelable
 import com.arkivanov.essenty.parcelable.Parcelize
@@ -59,6 +56,7 @@ class VirbetRootComponent constructor(
             )
         }
 
+
     private fun virbet(
         componentContext: ComponentContext
     ): Virbet = VirbetComponent(
@@ -66,7 +64,7 @@ class VirbetRootComponent constructor(
         context = context,
         virbetRepository = virbetRepository,
         onReplaceToHome = {
-            navigation.push(Config.VirbetHomeConfig)
+            navigation.replaceCurrent(Config.VirbetHomeConfig)
         }
     )
 
