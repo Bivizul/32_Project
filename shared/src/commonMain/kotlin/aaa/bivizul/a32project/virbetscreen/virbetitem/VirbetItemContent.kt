@@ -1,6 +1,10 @@
 package aaa.bivizul.a32project.virbetscreen.virbetitem
 
 import aaa.bivizul.a31project.especui.especwidget.Virbetcp
+import aaa.bivizul.a32project.virbetentity.VirbetinEntity
+import aaa.bivizul.a32project.virbetwdg.VirbetItemImage
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -29,26 +33,43 @@ fun VirbetItemContent(
     if (virbetItemList != null) {
         virbetItemList?.let { list ->
             list[model.selectedVirbetItemId - 1].let { item ->
+                val virbetin = item.virbetin
+                val virbetimg = item.virbetimg
                 Column(
                     modifier = modifier
                         .verticalScroll(scrollState)
                         .padding(8.dp)
                         .fillMaxSize(),
-                    horizontalAlignment = Alignment.End
+                    horizontalAlignment = Alignment.Start,
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     Text(
                         text = item.virbettit,
                         style = MaterialTheme.typography.h5
                     )
+                    if (virbetimg.isNotEmpty()){
+                        VirbetItemImage(virbetimg)
+                    }
                     Text(
                         text = item.virbetdesc,
                         style = MaterialTheme.typography.body1
                     )
+                    if (item.virbetin != emptyList<VirbetinEntity>()){
+                        for (i in virbetin){
+                            Text(
+                                text = i.virbetsubtit,
+                                style = MaterialTheme.typography.h6
+                            )
+                            Text(
+                                text = i.virbetsubdesc,
+                                style = MaterialTheme.typography.body1
+                            )
+                        }
+                    }
                 }
             }
         }
     } else {
         Virbetcp()
     }
-
 }

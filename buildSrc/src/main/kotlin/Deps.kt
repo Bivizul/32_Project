@@ -58,7 +58,9 @@ object Deps {
 
         object Util {
             const val onesignal = "com.onesignal:OneSignal:4.8.2"
-            const val landscapist = "com.github.skydoves:landscapist-fresco:2.0.0"
+//            const val landscapist = "com.github.skydoves:landscapist-fresco:2.0.0"
+            const val coil = "io.coil-kt:coil-compose:2.2.1"
+            const val advancedWebView = "com.github.delight-im:Android-AdvancedWebView:v3.2.1"
         }
     }
 }

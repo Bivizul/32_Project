@@ -1,10 +1,9 @@
 package aaa.bivizul.a32project.virbetscreen.virbethome
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
+import aaa.bivizul.a32project.virbetutil.Virbetcon.VIRBETAN
+import aaa.bivizul.a32project.virbetwdg.VirbetHomeButton
+import aaa.bivizul.a32project.virbetwdg.VirbetListButton
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -25,19 +24,22 @@ fun VirbetHomeContent(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "VirbetHomeContent",
+            text = VIRBETAN,
             style = MaterialTheme.typography.h3,
             textAlign = TextAlign.Center
         )
-        Button(
-            onClick = { component.onClickVirbetList() }
-        ){
-            Text("List")
-        }
-        Button(
-            onClick = { component.onClickVirbetSettings() }
-        ){
-            Text("Settings")
+        Row(
+            modifier = modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceAround
+        ) {
+            VirbetHomeButton(
+                onClick = { component.onClickVirbetSettings() },
+                text = "Settings"
+            )
+            VirbetHomeButton(
+                onClick = { component.onClickVirbetList() },
+                text = "List"
+            )
         }
 
     }

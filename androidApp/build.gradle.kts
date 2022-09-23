@@ -59,5 +59,10 @@ dependencies {
     implementation(Deps.ArkIvanov.Decompose.decompose)
     implementation(Deps.ArkIvanov.Decompose.extensionsAndroid)
     implementation(Deps.Kmp.Util.onesignal)
+    implementation(Deps.Kmp.Util.advancedWebView)
+    implementation("androidx.appcompat:appcompat:1.5.1")
+    implementation("com.google.android.material:material:1.4.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 //    implementation(Deps.Kmp.Util.landscapist)
+
 }

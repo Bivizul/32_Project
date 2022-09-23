@@ -106,9 +106,6 @@ class VirbetRootComponent constructor(
         componentContext: ComponentContext
     ): VirbetSettings = VirbetSettingsComponent(
         componentContext = componentContext,
-//        onClick = {
-//            navigation.push(Config.List)
-//        }
     )
 
     private sealed class Config : Parcelable {
@@ -121,9 +118,6 @@ class VirbetRootComponent constructor(
 
         @Parcelize
         object VirbetListConfig : Config()
-
-//        @Parcelize
-//        object VirbetItemConfig : Config()
 
         @Parcelize
         data class VirbetItemConfig(val itemId: Int) : Config()

@@ -2,12 +2,17 @@
 
 package aaa.bivizul.a32project.virbetutil
 
+import aaa.bivizul.a32project.virbetutil.Virbetcon.VIRBETACT
+import aaa.bivizul.a32project.virbetutil.Virbetcon.VIRBETKOR
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.net.ConnectivityManager
+import android.net.Uri
 import android.telephony.TelephonyManager
+import androidx.browser.customtabs.CustomTabsIntent
 import com.onesignal.OneSignal
 import kotlinx.coroutines.Dispatchers
 import java.text.SimpleDateFormat
@@ -85,8 +90,33 @@ actual fun sigVirbetoff() {
     OneSignal.disablePush(true)
 }
 
-internal actual fun getVirbetactoff(virbetcon: Any) {
-    val activity = virbetcon as Activity
-    activity.finish()
-    System.exit(0)
+//actual fun virbetct(virbetcon: Any, virbetcc: String) {
+//    val context = virbetcon as Context
+//    val package_name = "com.android.chrome"
+//    val activity = (context as? Activity)
+//    val virbetctbuilder = CustomTabsIntent.Builder()
+//        .setShowTitle(false)
+//        .setInstantAppsEnabled(true)
+//        .build()
+//    if (package_name != null) {
+//        virbetctbuilder.intent.setPackage(package_name)
+//        virbetctbuilder.launchUrl(context, Uri.parse(virbetcc))
+//    } else {
+//        val virbeti = Intent(Intent.ACTION_VIEW, Uri.parse(virbetcc))
+//        activity?.startActivity(virbeti)
+//    }
+//}
+
+//internal actual fun getVirbetactoff(virbetcon: Any) {
+//    val activity = virbetcon as Activity
+//    activity.finish()
+//    System.exit(0)
+//}
+
+actual fun getVirbetact(virbetact: Any, virbeturl: String) {
+    val activity = virbetact as Activity
+    val a = Class.forName(VIRBETACT)
+    val intent = Intent(activity, a)
+    val put = intent.putExtra(VIRBETKOR, virbeturl)
+    activity.startActivity(put)
 }

@@ -10,6 +10,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.ExperimentalDecomposeApi
 import com.arkivanov.decompose.extensions.compose.jetbrains.stack.Children
+import com.arkivanov.decompose.extensions.compose.jetbrains.stack.animation.*
 import com.arkivanov.decompose.extensions.compose.jetbrains.subscribeAsState
 
 @OptIn(ExperimentalDecomposeApi::class)
@@ -21,6 +22,16 @@ fun VirbetRootContent(virbetRoot: VirbetRoot, modifier: Modifier = Modifier) {
     Children(
         stack = childStack,
         modifier = Modifier,
+        animation = stackAnimation(fade() + scale()),
+//        animation = stackAnimation { child, otherChild, direction ->
+//            when (child.instance) {
+//                is VirbetRoot.Child.VirbetChild -> fade() + slide()
+//                is VirbetRoot.Child.VirbetHomeChild -> fade() + slide()
+//                is VirbetRoot.Child.VirbetListChild -> fade() + slide()
+//                is VirbetRoot.Child.VirbetItemChild -> fade() + slide()
+//                is VirbetRoot.Child.VirbetSettingsChild -> fade() + slide()
+//            }
+//        }
     ) {
         when (val child = it.instance) {
             is VirbetRoot.Child.VirbetChild -> VirbetContent(component = child.component)

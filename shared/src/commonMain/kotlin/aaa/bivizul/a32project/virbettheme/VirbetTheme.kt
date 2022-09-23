@@ -18,16 +18,16 @@ fun VirbetTheme(
 ) {
     val colors = if (darkTheme) {
         darkColors(
-            primary = Color(0xFF58571B),
+            primary = Color(0xFF914B00),
             onPrimary = Color.White,
-            secondary = Color(0xFF00FFC4),
+            secondary = Color(0xFFA30000),
             surface = Color(0x95005541)
         )
     } else {
         lightColors(
-            primary = Color(0xFFa8a632),
+            primary = Color(0xFFFF8400),
             onPrimary = Color.Black,
-            secondary = Color(0xFF00FFC4),
+            secondary = Color(0xFFFF0000),
             surface = Color(0x9500FFC4)
         )
     }

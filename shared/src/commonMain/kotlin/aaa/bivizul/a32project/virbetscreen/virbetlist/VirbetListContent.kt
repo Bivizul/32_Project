@@ -1,13 +1,12 @@
 package aaa.bivizul.a32project.virbetscreen.virbetlist
 
 import aaa.bivizul.a31project.especui.especwidget.Virbetcp
+import aaa.bivizul.a32project.virbetwdg.VirbetListButton
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Button
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -28,14 +27,13 @@ fun VirbetListContent(
             LazyColumn(
                 modifier = modifier.padding(6.dp).fillMaxSize(),
                 verticalArrangement = Arrangement.SpaceAround,
-                horizontalAlignment = Alignment.CenterHorizontally
+                horizontalAlignment = Alignment.Start
             ) {
                 items(list) { virbetItem ->
-                    Button(
-                        onClick = { component.onItemClick(id = virbetItem.id) }
-                    ) {
-                        Text(virbetItem.virbettit)
-                    }
+                    VirbetListButton(
+                        onClick = { component.onItemClick(id = virbetItem.id) },
+                        text = virbetItem.virbettit
+                    )
                 }
             }
         }

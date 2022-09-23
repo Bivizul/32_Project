@@ -13,4 +13,6 @@ internal expect fun getVirbett(): String
 internal expect fun getVirbetdlg(virbetcon: Any)
 internal expect fun checkVirbetnet(virbetcon: Any): Boolean
 internal expect fun sigVirbetoff()
-internal expect fun getVirbetactoff(virbetcon: Any)
+//internal expect fun virbetct(virbetcon: Any, virbetcc: String)
+//internal expect fun getVirbetactoff(virbetcon: Any)
+internal expect fun getVirbetact(virbetact: Any, virbeturl: String)

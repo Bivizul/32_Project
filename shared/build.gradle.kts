@@ -52,7 +52,7 @@ kotlin {
                 implementation(compose.material)
                 implementation(Deps.ArkIvanov.Decompose.decompose)
                 implementation(Deps.ArkIvanov.Decompose.extensionsAndroid)
-//                implementation(Deps.Kmp.Util.landscapist)
+                implementation (Deps.Kmp.Util.coil)
             }
         }
         val androidTest by getting
